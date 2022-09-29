@@ -1,3 +1,5 @@
+
+
 body {
   font-family: 'Raleway', sans-serif;
   color: #213053;
@@ -7,8 +9,13 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
     padding: 20px;
+    background-color:white;
+    position:sticky;
+    top:0;
+    z-index: 1;
+
   }
   .header__logo {
     height: 30px;
@@ -40,14 +47,29 @@ header {
   .about__sun-image {
     width: 100px;
     height: 100px;
+    animation-name: rotation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: absolute;
   }
-
+@keyframes rotation {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
   .about {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top:115px;
-    padding: bottom 115px;
+    padding-top: 115px;
+    padding-bottom: 115px;
+    background: url(../img/back.png)no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: ease-in 2s;
+  }
+  
+   
   }
   .about h1{
     font-size:70px;
@@ -56,7 +78,7 @@ header {
   .about p{
     font-size:18px;
     line-height:30px;
-    opacity: 0.8
+    opacity: 0.8;
   }
   .about button {
     font-size: 18px;
@@ -67,12 +89,7 @@ header {
   .about__info{
     max-width: 550px;
   }
-  .about {
-    /* ... */
-    background: url('img/back.png') no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
+    
   .form__container {
     width: 550px;
   }
@@ -83,8 +100,8 @@ header {
     padding-bottom: 115px;
     text-align: center;
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
   }
   .form h1{
     font-size: 48px;
@@ -138,8 +155,8 @@ header {
   }
   button:hover{
     background-color: #f6980c;
-    box-shadow:0 16px 36px rgba(246 152 12 / 20%) ;
-    transition:background-color 0.3s ease-in ;
+    box-shadow:0 16px 36px rgba(246 152 12 / 20%);
+    transition:background-color 0.3s ease-in;
   }
   .footer {
     padding: 90px 20px 90px 20px;
@@ -165,11 +182,79 @@ header {
   margin-bottom: 30px;
 }
 .footer__links{
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer__links a {
   margin-bottom: 15px;
 }
 
+@media (max-width: 1024px) {
+  .about {
+      padding: 115px 20px;
+  }
+
+  .about h1 {
+      font-size: 36px;
+      line-height: 40px;
+  }
+
+  .about__image {
+      width: 280px;
+  }
+
+  .about__sun-image {
+      width: 75px;
+      height: 75px;
+  }
+}
+
+@media (max-width: 720px) {
+  header {
+      padding: 10px;
+  }
+
+  .header__logo {
+      height: 20px;
+  }
+
+  header a {
+      margin-right: 10px;
+  }
+
+  .about {
+      flex-direction: column-reverse;
+      padding: 50px 10px;
+  }
+
+  .about h1 {
+      font-size: 36px;
+      line-height: 40px;
+  }
+
+  .about__image {
+      width: 280px;
+  }
+
+  .about__sun-image {
+      width: 75px;
+      height: 75px;
+  }
+
+  .form {
+      padding: 50px 10px;
+  }
+
+  .form h1 {
+      font-size: 36px;
+  }
+
+  footer {
+      padding: 50px 10px;
+  }
+
+  .footer__container {
+      flex-direction: column;
+  }
+}
